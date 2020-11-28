@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import firebase from 'firebase/app'
-import firestore from 'firebase/firestore'
+import 'firebase/firestore'
 
 var firebaseConfig = {
   apiKey: "AIzaSyDyWg8vMFq-eSDWfbHvGByaE5OYlFt0VLs",
