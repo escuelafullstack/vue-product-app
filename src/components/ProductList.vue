@@ -4,9 +4,9 @@
             Product List
         </h1>
         <ul>
-            <ProductItem title="Zapatilla Nike" />
-            <ProductItem title="Zapatilla Adidas" />
-            <ProductItem title="Zapatilla Puma" />
+            <ProductItem title="Zapatilla Nike" description="Zapatillas para correr" price="200"/>
+            <ProductItem title="Zapatilla Adidas" description="Zapatillas para jugar futbol" price="220"/>
+            <ProductItem title="Zapatilla Puma" description="Zapatillas para jugar tenis" price="230"/>
         </ul>
     </div>
 </template>
