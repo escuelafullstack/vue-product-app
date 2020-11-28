@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import firestore from 'firebase/firestore'
 
 var firebaseConfig = {
   apiKey: "AIzaSyDyWg8vMFq-eSDWfbHvGByaE5OYlFt0VLs",
@@ -14,6 +15,8 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+export const db = firebase.firestore()
 
 Vue.config.productionTip = false
 
