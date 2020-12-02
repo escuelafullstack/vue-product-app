@@ -12,7 +12,7 @@
                 sm="4"
                 style="height: 200px;"
                 >
-                <ProductItem :id="product.id" :title="product.title" :description="product.description " :price="product.price"/>
+                <ProductItem  v-on:getProducts="getProducts" :id="product.id" :title="product.title" :description="product.description " :price="product.price"/>
                 </v-col>
             </v-row>
         </v-container>

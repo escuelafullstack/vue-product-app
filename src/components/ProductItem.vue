@@ -164,11 +164,15 @@
             console.log(productToUpdate)
             const product = await db.collection('products').doc(this.id)
             product.set(productToUpdate)
+            this.$emit('getProducts')
             this.dialog = false
+            
           },
           async deleteProduct() {
             await db.collection('products').doc(this.id).delete()
+            this.$emit('getProducts')
             this.showModal = false
+            
           }
         },
         props: {
