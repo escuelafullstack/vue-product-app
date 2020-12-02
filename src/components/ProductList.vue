@@ -3,9 +3,19 @@
         <h1>
             Product List
         </h1>
-        <div v-for="product in products" :key="product.id">
-            <ProductItem :id="product.id" :title="product.title" :description="product.description " :price="product.price"/>
-        </div>
+          <v-container class="">
+            <v-row no-gutters style="spacing">
+                <v-col
+                v-for="product in products"
+                :key="product.id"
+                cols="12"
+                sm="4"
+                style="height: 200px;"
+                >
+                <ProductItem :id="product.id" :title="product.title" :description="product.description " :price="product.price"/>
+                </v-col>
+            </v-row>
+        </v-container>
     </div>
 </template>
 
