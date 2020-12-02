@@ -52,6 +52,7 @@
         <v-row class="text-center">
           <v-col cols="12">
             <!-- Product List -->
+            <ProductForm/>
             <ProductList/>
           </v-col>
         </v-row>
@@ -63,13 +64,15 @@
 <script>
 import HelloWorld from './components/HelloWorld';
 import ProductList from './components/ProductList';
+import ProductForm from './components/ProductForm';
 
 export default {
   name: 'App',
 
   components: {
     HelloWorld,
-    ProductList
+    ProductList,
+    ProductForm
   },
 
   data: () => ({
