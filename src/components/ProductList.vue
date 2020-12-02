@@ -4,7 +4,7 @@
             Product List
         </h1>
         <div v-for="product in products" :key="product.id">
-            <ProductItem :title="product.title" :description="product.description " :price="product.price"/>
+            <ProductItem :id="product.id" :title="product.title" :description="product.description " :price="product.price"/>
         </div>
     </div>
 </template>
