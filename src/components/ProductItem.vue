@@ -21,6 +21,48 @@
           <v-list-item-title>S/ {{price}}</v-list-item-title>
     </v-list-item-content>
     <template>
+      <v-row justify="center">
+    <v-dialog
+      v-model="showModal"
+      persistent
+      max-width="290"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="red"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Eliminar
+        </v-btn>
+      </template>
+      <v-card>
+        <v-card-title class="headline">
+          Eliminar producto?
+        </v-card-title>
+        <v-card-text>Recuerde que el producto se eliminará de forma permanente.</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="blue darken-1"
+            dark
+            text
+            @click="showModal = false"
+          >
+            Cancelar
+          </v-btn>
+          <v-btn
+            color="red darken-1"
+            dark
+            @click="deleteProduct"
+          >
+            Eliminar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
   <v-row justify="center">
     <v-dialog
       v-model="dialog"
@@ -102,6 +144,7 @@
         name: 'ProductItem',
         data: () => ({
           dialog: false,
+          showModal: false,
           titleToShow: '',
           descriptionToShow: '',
           priceToShow: ''
@@ -122,6 +165,10 @@
             const product = await db.collection('products').doc(this.id)
             product.set(productToUpdate)
             this.dialog = false
+          },
+          async deleteProduct() {
+            await db.collection('products').doc(this.id).delete()
+            this.showModal = false
           }
         },
         props: {
