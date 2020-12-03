@@ -27,23 +27,22 @@
       <v-spacer></v-spacer>
 
        <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
         text
+        @click="redirectToRegister"
       >
         <span class="mr-2">Registrar</span>
       </v-btn>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
         text
+        @click="redirectToLogin"
       >
         <span class="mr-2">Login</span>
       </v-btn>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
         text
       >
@@ -54,7 +53,14 @@
 
 <script>
 export default {
-
+  methods: {
+    redirectToRegister() {
+      this.$router.push('/register')
+    },
+    redirectToLogin() {
+      this.$router.push('/login')
+    }
+  }
 }
 </script>
 
