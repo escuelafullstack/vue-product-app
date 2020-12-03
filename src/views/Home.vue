@@ -13,13 +13,20 @@
             />
           </v-col>
         </v-row>
-        <v-row class="text-center">
+        <div v-if="isLoggedIn">
+          <v-row class="text-center">
           <v-col cols="12">
             <!-- Product List -->
             <ProductForm/>
             <ProductList/>
           </v-col>
         </v-row>
+        </div>
+        <div v-else>
+          <h1> Bienvenido</h1>
+          <h2> Es necesario iniciar sesión para poder tener acceso al administrador de productos</h2>
+        </div>
+        
       </v-container>
     </v-main>
   </div>
@@ -33,6 +40,18 @@ import AppBar from '@/components/AppBar.vue'
 
 export default {
   name: 'Home',
+  data: () => ({
+    user: null,
+    isLoggedIn: false
+  }),
+  created() {
+    this.user =  localStorage.getItem("user")
+    console.log('USER: ', this.user)
+    this.isLoggedIn = this.user ? true : false
+  },
+  mounted() {
+
+  },
   components: {
     AppBar,
     ProductForm,
