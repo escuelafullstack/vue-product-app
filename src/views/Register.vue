@@ -51,6 +51,7 @@
 
 <script>
 import AppBar from '../components/AppBar'
+import firebase from 'firebase'
 
 export default {
   name: 'Register',
@@ -59,8 +60,11 @@ export default {
     password: ''
   }),
   methods: {
-    registerUser() {
+    async registerUser() {
       console.log(`Registrando usuario... ${this.email} y ${this.password}`)
+      const { user } = await firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+      console.log('USUARIO: ', user)
+      this.$router.push('/login')
     }
   },
   components: {
