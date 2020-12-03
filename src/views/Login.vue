@@ -44,8 +44,15 @@ export default {
   name: 'Login',
   data: () => ({
     email: '',
-    password: ''
+    password: '',
+    user: null
   }),
+  created() {
+    this.user = localStorage.getItem("user")
+    if (this.user) {
+      this.$router.push('/')
+    }
+  },
   methods: {
     async signIn() {
       console.log(`Iniciando sesion... ${this.email} y ${this.password}`) 

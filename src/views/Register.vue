@@ -57,8 +57,16 @@ export default {
   name: 'Register',
   data: () => ({
     email: '',
-    password: ''
+    password: '',
+    user: null
   }),
+  created() {
+    this.user = localStorage.getItem("user")
+
+    if (this.user) {
+      this.$router.push('/')
+    }
+  },
   methods: {
     async registerUser() {
       console.log(`Registrando usuario... ${this.email} y ${this.password}`)
